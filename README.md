@@ -22,5 +22,5 @@ THIS WILL ONLY WORK FOR BETTER DISCORD USERS
 * Document **ALL** code contributions
   * Anything undocumented will be ignored until full documentation is provided
   * **TEST** your code first.  Do not blindly contribute.
-  * Do NOT do a pull request into master, do it on **[dev](https://github.com/IRDeNial/BD-Even-Better-Repo/tree/dev)** instead.
+  * Do NOT do a pull request into master, do it on **[dev](https://github.com/IRDeNial/BD-Server-Themes/tree/dev)** instead.
     * Your pull requests will be merged into master at each itteration if accepted.

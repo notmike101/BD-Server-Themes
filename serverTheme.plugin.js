@@ -7,12 +7,12 @@ serverTheme.intervalTimer1 = null;
 
 /* Internal Functions */
 serverTheme.prototype.doesFileExist = function(filePath) {
-    try{
-		require('fs').accessSync(filePath);
-		return true;
-	} catch(e) {
-		return false;
-	}
+    try {
+        require('fs').accessSync(filePath);
+        return true;
+    } catch(e) {
+        return false;
+    }
 };
 serverTheme.prototype.getFileContent = function(filePath,callback) {
     if(serverTheme.prototype.doesFileExist(filePath)) {
@@ -73,9 +73,11 @@ serverTheme.prototype.onSwitch = function(){
 serverTheme.prototype.start = function(){
     serverTheme.prototype.loadServerCSS(serverTheme.prototype.getCurrentServerHash());
    
+    /*
     $('.guild-header ul').prepend('<li><a class="server-css">Server CSS</a></li>');
 
     $('.guild-header ul .server-css').click(function(){
         serverTheme.prototype.openEditor(serverTheme.themePath + serverTheme.prototype.getCurrentServerHash() +'.servertheme.css');
     });
+    */
 };

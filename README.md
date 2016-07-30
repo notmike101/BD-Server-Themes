@@ -1,0 +1,26 @@
+# BD-Server-Themes
+Allow individual servers to use specific themes.
+
+THIS WILL ONLY WORK FOR BETTER DISCORD USERS
+
+## How To Use
+1. Install [BetterDiscord](https://betterdiscord.net/home/) if you don't already have it.
+2. Download [serverTheme.plugin.js](https://raw.githubusercontent.com/IRDeNial/BD-Server-Themes/master/serverTheme.plugin.js)
+3. Put it in your plugins directory (Just open it from the client, can vary between users).
+4. Restart BetterDiscord
+
+## How to create themes
+1. In Discord, right click on the server that you want to create a theme for.  Then click **"Copy ID"**.  This will give you the server ID.
+    * This will be referred to as {{ServerID}}.
+2. In your themes folder, create a new file and name it **{{ServerID}}.servertheme.css**
+3. In this file, put any CSS that you want to be applied to the individual server.
+
+## Contributors
+* [IRDeNial](https://github.com/IRDeNial/)
+
+## Contribution Guidelines
+* Document **ALL** code contributions
+  * Anything undocumented will be ignored until full documentation is provided
+  * **TEST** your code first.  Do not blindly contribute.
+  * Do NOT do a pull request into master, do it on **[dev](https://github.com/IRDeNial/BD-Even-Better-Repo/tree/dev)** instead.
+    * Your pull requests will be merged into master at each itteration if accepted.

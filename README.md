@@ -28,6 +28,11 @@ There are two ways to create themes.
 5. Save
 6. Rejoin the server
 
+## Images
+![https://share.md5.xyz/Akk1470196489AZ1.png](https://share.md5.xyz/Akk1470196489AZ1.png)
+
+![https://share.md5.xyz/LNs14701940579Da.gif](https://share.md5.xyz/LNs14701940579Da.gif)
+
 ## To Do List
 * Write auto-update routine
 * Allow live changing of CSS so switching servers is not required in order to update

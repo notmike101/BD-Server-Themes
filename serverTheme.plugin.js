@@ -31,7 +31,7 @@ serverTheme.prototype.load = function(){
     };
     this.injectCSS = function(buffer) {
         BdApi.clearCSS("serverTheme-css");
-        BdApi.injectCSS("serverTheme-css", buffer);
+        BdApi.injectCSS("serverTheme-css", buffer.replace(/\/\/META{(.*)}\*\/\//,''));
     };
     this.getFileContent = function(filePath,callback) {
         if(this.doesFileExist(filePath)) {

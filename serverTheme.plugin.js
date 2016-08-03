@@ -19,6 +19,7 @@ serverTheme.prototype.load = function(){
     /* Variables */
     this.themePath = process.env.APPDATA + "\\BetterDiscord\\themes\\";
     this.intervalTimer1 = null;
+    this.loaded = false;
 
     /* Functions */
     this.loadServerCSS = function(serverHash) {
@@ -60,6 +61,23 @@ serverTheme.prototype.load = function(){
             return false;
         }
     };
+    this.setup = function() {
+        this.loadServerCSS(this.getCurrentServerHash());
+
+        $('.guild-header ul').prepend('<li><a class="server-css">Server CSS</a></li>');
+
+        $('.guild-header ul .server-css').on('click.serverCSS',function(){
+            var filePath = process.env.APPDATA + "\\BetterDiscord\\themes\\" + $('.guild.selected a').attr('href').split('/')[2] + '.servertheme.css';
+            
+            try {
+                require('fs').accessSync(filePath);
+            } catch(e) {
+                require('fs').closeSync(require('fs').openSync(filePath, 'w'));
+            }
+            
+            require('child_process').exec('start "" "' + filePath +'"');
+        });
+    }
 };
 serverTheme.prototype.unload = function(){};
 serverTheme.prototype.stop = function(){
@@ -68,21 +86,12 @@ serverTheme.prototype.stop = function(){
 serverTheme.prototype.onSwitch = function(){
     this.loadServerCSS(this.getCurrentServerHash());
 };
-serverTheme.prototype.start = function(){
-    this.loadServerCSS(this.getCurrentServerHash());
-
-    $('.guild-header ul').prepend('<li><a class="server-css">Server CSS</a></li>');
-
-    $('.guild-header ul .server-css').click(function(){
-        var filePath = process.env.APPDATA + "\\BetterDiscord\\themes\\" + $('.guild.selected a').attr('href').split('/')[2] + '.servertheme.css';
-        
-        try {
-            require('fs').accessSync(filePath);
-        } catch(e) {
-            require('fs').closeSync(require('fs').openSync(filePath, 'w'));
+serverTheme.prototype.observer = function(e){
+    if(!this.loaded) {
+        if(e.target.classList.contains("guilds")) {
+            this.loaded = true;
+            this.setup();
         }
-        
-        require('child_process').exec('start "" "' + filePath +'"');
-        
-    });
+    }
 };
+serverTheme.prototype.start = function(){};

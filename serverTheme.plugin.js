@@ -18,8 +18,8 @@ serverTheme.prototype.getAuthor = function(){
 serverTheme.prototype.load = function(){
     /* Variables */
     this.themePath = process.env.APPDATA + "\\BetterDiscord\\themes\\";
-    this.intervalTimer1 = null;
     this.loaded = false;
+    this.bdIsLoaded = false;
 
     /* Functions */
     this.loadServerCSS = function(serverHash) {
@@ -28,7 +28,13 @@ serverTheme.prototype.load = function(){
         $('#serverTheme-css').addClass('theme-'+serverHash);
     };
     this.getCurrentServerHash = function() {
-        return $('.guild.selected a').attr('href').split('/')[2];
+        var serverHash = null;
+        try {
+            serverHash = $('.guild.selected a,.guild.active a').attr('href').split('/')[2];
+        } catch(e) {
+            console.log("Failed to get server hash");
+        }
+        return serverHash;
     };
     this.injectCSS = function(buffer) {
         BdApi.clearCSS("serverTheme-css");
@@ -62,8 +68,13 @@ serverTheme.prototype.load = function(){
         }
     };
     this.setup = function() {
-        this.loadServerCSS(this.getCurrentServerHash());
-
+        try {
+            this.loadServerCSS(this.getCurrentServerHash());
+            this.setup = true;
+        } catch(e) {
+            console.log("Error setting up ServerTheme " + e);
+        }
+        
         $('.guild-header ul').prepend('<li><a class="server-css">Server CSS</a></li>');
 
         $('.guild-header ul .server-css').on('click.serverCSS',function(){
@@ -81,6 +92,8 @@ serverTheme.prototype.load = function(){
 };
 serverTheme.prototype.unload = function(){};
 serverTheme.prototype.stop = function(){
+    $('.guild-header ul .server-css').off('click.serverCSS');
+    $('.guild-header ul .server-css').remove();
     BdApi.clearCSS("serverTheme-css");
 };
 serverTheme.prototype.onSwitch = function(){
@@ -90,8 +103,13 @@ serverTheme.prototype.observer = function(e){
     if(!this.loaded) {
         if(e.target.classList.contains("guilds")) {
             this.loaded = true;
+            this.bdIsLoaded = true;
             this.setup();
         }
     }
 };
-serverTheme.prototype.start = function(){};
+serverTheme.prototype.start = function(){
+    if(this.bdIsLoaded) {
+        this.setup();
+    }
+};

@@ -70,24 +70,25 @@ serverTheme.prototype.load = function(){
     this.setup = function() {
         try {
             this.loadServerCSS(this.getCurrentServerHash());
-            this.setup = true;
         } catch(e) {
             console.log("Error setting up ServerTheme " + e);
         }
         
-        $('.guild-header ul').prepend('<li><a class="server-css">Server CSS</a></li>');
+        if($('.server-css').length == 0) {
+            $('.guild-header ul').prepend('<li><a class="server-css">Server CSS</a></li>');
 
-        $('.guild-header ul .server-css').on('click.serverCSS',function(){
-            var filePath = process.env.APPDATA + "\\BetterDiscord\\themes\\" + $('.guild.selected a').attr('href').split('/')[2] + '.servertheme.css';
-            
-            try {
-                require('fs').accessSync(filePath);
-            } catch(e) {
-                require('fs').closeSync(require('fs').openSync(filePath, 'w'));
-            }
-            
-            require('child_process').exec('start "" "' + filePath +'"');
-        });
+            $('.guild-header ul .server-css').on('click.serverCSS',function(){
+                var filePath = process.env.APPDATA + "\\BetterDiscord\\themes\\" + $('.guild.selected a').attr('href').split('/')[2] + '.servertheme.css';
+                
+                try {
+                    require('fs').accessSync(filePath);
+                } catch(e) {
+                    require('fs').closeSync(require('fs').openSync(filePath, 'w'));
+                }
+                
+                require('child_process').exec('start "" "' + filePath +'"');
+            });
+        }
     }
 };
 serverTheme.prototype.unload = function(){};
@@ -97,7 +98,8 @@ serverTheme.prototype.stop = function(){
     BdApi.clearCSS("serverTheme-css");
 };
 serverTheme.prototype.onSwitch = function(){
-    this.loadServerCSS(this.getCurrentServerHash());
+    //this.loadServerCSS(this.getCurrentServerHash());
+    this.setup();
 };
 serverTheme.prototype.observer = function(e){
     if(!this.loaded) {

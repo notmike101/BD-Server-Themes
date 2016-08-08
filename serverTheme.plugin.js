@@ -98,7 +98,6 @@ serverTheme.prototype.stop = function(){
     BdApi.clearCSS("serverTheme-css");
 };
 serverTheme.prototype.onSwitch = function(){
-    //this.loadServerCSS(this.getCurrentServerHash());
     this.setup();
 };
 serverTheme.prototype.observer = function(e){

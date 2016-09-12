@@ -45,4 +45,4 @@ There are two ways to create themes.
   * Anything undocumented will be ignored until full documentation is provided
   * **TEST** your code first.  Do not blindly contribute.
   * Do NOT do a pull request into master, do it on **[dev](https://github.com/IRDeNial/BD-Server-Themes/tree/dev)** instead.
-    * Your pull requests will be merged into master at each itteration if accepted.
+    * Your pull requests will be merged into master at each iteration if accepted.

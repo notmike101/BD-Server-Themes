@@ -19,8 +19,6 @@ THIS WILL ONLY WORK FOR BETTER DISCORD USERS
 6. Rejoin the server
 
 ## Images
-![https://share.md5.xyz/Akk1470196489AZ1.png](https://share.md5.xyz/Akk1470196489AZ1.png)
-
 ![https://share.md5.xyz/LNs14701940579Da.gif](https://share.md5.xyz/LNs14701940579Da.gif)
 
 ## To Do List

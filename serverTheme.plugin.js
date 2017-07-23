@@ -12,7 +12,7 @@ serverTheme.prototype.getVersion = function(){
     return '1.0.0';
 };
 serverTheme.prototype.getAuthor = function(){
-    return '<a href="https://github.com/IRDeNial" target="_BLANK">DeNial</a>';
+    return 'IRDeNial';
 };
 
 serverTheme.prototype.load = function(){

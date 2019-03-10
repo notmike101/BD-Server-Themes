@@ -3,6 +3,10 @@ Allow individual servers to use specific themes.
 
 THIS WILL ONLY WORK FOR BETTER DISCORD USERS
 
+################################
+#### THIS REPOSITORY IS NO LONGER MAINTAINED
+################################
+
 ## How To Use
 1. Install [BetterDiscord](https://betterdiscord.net/home/) if you don't already have it.
 2. Download [serverTheme.plugin.js](https://raw.githubusercontent.com/IRDeNial/BD-Server-Themes/master/serverTheme.plugin.js)

@@ -4,7 +4,7 @@ Allow individual servers to use specific themes.
 THIS WILL ONLY WORK FOR BETTER DISCORD USERS
 
 ################################
-#### THIS REPOSITORY IS NO LONGER MAINTAINED
+#### THIS PLUGIN HAS MIGRATED TO https://github.com/notmike101/betterdiscord-server-themes
 ################################
 
 ## How To Use
